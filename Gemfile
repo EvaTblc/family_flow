@@ -35,7 +35,6 @@ group :test do
 end
 
 # MY GEMS
-# gem "tailwindcss-rails", "~> 3.0"
 gem "devise"
 gem 'devise-i18n'
 gem "bootstrap", "~> 5.2"
@@ -43,3 +42,5 @@ gem "sassc-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "autoprefixer-rails"
 gem 'simple_form'
+gem "cloudinary"
+gem "dotenv-rails"
