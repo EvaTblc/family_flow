@@ -1,0 +1,16 @@
+<h1>TACHES</h1>
+
+<% @tasks.each do |task| %>
+  <%= link_to task_path(task) do %>
+    <%= task.title %>
+  <% end %>
+<% end %>
+
+
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :category, collection: Task::CATEGORIES %>
+  <%= f.input :start, html5: true %>
+  <%= f.input :end, html5: true %>
+  <%= f.input :priority, type: :checkbox %>
+<% end %>

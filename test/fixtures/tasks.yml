@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  title: MyString
+  description: MyString
+  start: 2024-10-22
+  end: MyString
+  date: MyString
+  priority: false
+  status: MyString
+  recurrence: MyString
+
+two:
+  category: MyString
+  title: MyString
+  description: MyString
+  start: 2024-10-22
+  end: MyString
+  date: MyString
+  priority: false
+  status: MyString
+  recurrence: MyString
