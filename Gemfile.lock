@@ -346,6 +346,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bcrypt
   bootsnap
   bootstrap (~> 5.2)
   capybara

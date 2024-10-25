@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_22_115141) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_25_123258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_22_115141) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_organizations_on_creator_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "category"
     t.string "title"
@@ -55,6 +64,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_22_115141) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "user_orgs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "organization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_user_orgs_on_organization_id"
+    t.index ["user_id"], name: "index_user_orgs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,5 +93,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_22_115141) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "organizations", "users", column: "creator_id"
   add_foreign_key "tasks", "users"
+  add_foreign_key "user_orgs", "organizations"
+  add_foreign_key "user_orgs", "users"
 end

@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   CATEGORIES = ['RDV', 'Maison', 'Enfant', 'Courses', 'Administratif', 'Autres']
   validates :category, inclusion: { in: CATEGORIES }
   validates :start, timeliness: { on_or_before: lambda { Date.current }, type: :date }
-  validates :end, presence: true, comparison: { greater_than: :start_date }
+  validates :end, presence: true, comparison: { greater_than: :start }
 
 
   def format_date

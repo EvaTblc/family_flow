@@ -2,3 +2,6 @@
 <p>Début le <%= I18n.localize(@task.start) %></p>
 <p>Fin le <%= I18n.localize(@task.end) %></p>
 <p><%= @task.description %></p>
+<p><%= @task.status %></p>
+
+<%= link_to "Retour index", tasks_path %>
