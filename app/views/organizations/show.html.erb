@@ -1,0 +1,6 @@
+<%= @organization.name %>
+
+
+
+<%= link_to "Home", root_path %>
+<%= link_to "Supprimer cette organisation", organization_path(@organization), data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr de vouloir supprimer cette organisation ?"} %>
