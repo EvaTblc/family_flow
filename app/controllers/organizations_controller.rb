@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  before_action :set_organization
+  before_action :group_tasks
   def new
     @organization = Organization.new
   end
@@ -10,14 +12,15 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:id])
     @uo = UserOrg.new
+    users = User.all.reject { |user| user == User.find_by(email: current_user.email) }
+    @username = []
+    users.each { |user| @username << user.username }
 
-    @users = User.all
+    @usersorgs = UserOrg.all.where(organization: @organization)
   end
 
   def destroy
-    @organization = Organization.find(params[:id])
     users_orgz = User_orgs.where(organization: @organization)
     users_orgz.each(&:delete)
     if @organization.delete
@@ -25,7 +28,26 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def update
+    if @organization.update(params_org)
+      redirect_to organization_path(@organization)
+    else
+      redirect_to organization_path(@organization)
+      # FAUT CHANGER CA AVEC UNE ALERT
+    end
+  end
+
   private
+
+  def set_organization
+    @organization = Organization.find(params[:id])
+  end
+
+  def group_tasks
+    @tasks = []
+    @organization.creator.tasks.each { |task| @tasks << task }
+    @organization.tasks.each { |task| @tasks << task }
+  end
 
   def params_org
     params.require(:organization).permit(:name, :password)
