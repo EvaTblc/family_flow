@@ -2,6 +2,26 @@
 <p>Début le <%= I18n.localize(@task.start) %></p>
 <p>Fin le <%= I18n.localize(@task.end) %></p>
 <p><%= @task.description %></p>
-<p><%= @task.status %></p>
+
+<% if @task.status == true %>
+  <p>Terminé</p>
+<% else %>
+  <p>En cours</p>
+<% end %>
 
 <%= link_to "Retour index", tasks_path %>
+
+
+
+<p>Edit Task</p>
+<%= simple_form_for @task do |f| %>
+  <%= f.input :category, collection: Task::CATEGORIES %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start, html5: true %>
+  <%= f.input :end, html5: true %>
+  <%= f.input :priority, label: "Urgent?" %>
+  <%= f.input :recurrence %>
+  <%= f.input :status, label: "Terminé?" %>
+  <%= f.button :submit %>
+<% end %>

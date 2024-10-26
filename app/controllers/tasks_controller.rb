@@ -1,11 +1,20 @@
 class TasksController < ApplicationController
+  before_action :set_task, except: [:index]
   def index
     @tasks = Task.where(user: current_user)
     @task = Task.new
   end
 
   def show
-    @task = Task.find(params[:id])
+  end
+
+  def update
+    if @task.update(params_tasks)
+      redirect_to task_path(@task)
+    else
+      redirect_to task_path(@task)
+            # FAUT CHANGER CA AVEC UNE ALERT
+    end
   end
 
   def create
@@ -17,6 +26,10 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def params_tasks
     params.require(:task).permit(:category, :title, :description, :start, :end, :priority, :status, :recurrence)
