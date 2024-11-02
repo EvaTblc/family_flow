@@ -1,14 +1,17 @@
 class TasksController < ApplicationController
-  before_action :set_task, except: [:index]
+  # before_action :set_task, except: [:index]
   def index
     @tasks = Task.where(user: current_user)
     @task = Task.new
   end
 
   def show
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+
     if @task.update(params_tasks)
       redirect_to task_path(@task)
     else
