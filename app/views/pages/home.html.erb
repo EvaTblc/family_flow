@@ -1,8 +1,24 @@
-<h1>Welcome <%= current_user.username %></h1>
+<div class="homecontainer">
 
-<%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Vous voulez vraiment partir ?"} if user_signed_in? %>
-<%= link_to "Index tasks", tasks_path %>
+  <div class="title_home">
 
-<% if @organization || @member_organization %>
-  <%= link_to "My Org", organization_path(@organization || @member_organization) %>
-<% end %>
+    <div class= "pixel-art_border">
+      <h1>Family Flow</h1>
+      <p class="slogan">La vie de famille<br>fluide et simplifiée</p>
+    </div>
+
+    <div class="home_btn">
+      <% if current_user  %>
+        <%= link_to "Continue", profile_user_path(current_user), class:"session_btn" %>
+        <%= link_to "Exit", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vous déconnecter ?" }, class:"session_btn" %>
+      <% else %>
+          <%= button_to "Connexion", new_user_session_path, class: "button-homepage"  %>
+      <% end %>
+    </div>
+
+    <div class="bottom_home">
+      <%= image_tag 'family.png', class: "home_img" %>
+    </div>
+
+  </div>
+</div>

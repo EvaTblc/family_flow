@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :user_orgs, only: [:create]
   end
   resources :user_orgs, only: [:destroy]
+  resources :users, only: [:index] do
+    member do
+      get :profile
+    end
+  end
 end
