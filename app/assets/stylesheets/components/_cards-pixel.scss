@@ -1,0 +1,8 @@
+.pixel-art_border {
+  background-color: $light-lavander;
+  border: 5px solid $lavander;
+  box-shadow:   -15px 0 0 0 $violet,
+                 15px 0 0 0 $violet,
+                 0 -15px 0 0 $violet,
+                 0 15px 0 0 $violet;
+}

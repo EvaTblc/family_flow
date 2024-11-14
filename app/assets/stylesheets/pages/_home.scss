@@ -2,15 +2,20 @@
 .homecontainer {
   width: 100%;
   height: 100%;
-  background-color: $light-orange;
 }
 
 .slogan {
   font-family: $main;
   color: $dark-violet;
-
   font-size: 20px;
   font-weight: thin;
+}
+
+.home-pixl-border {
+  height: 30vh;
+  padding-top: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .title_home {
@@ -22,19 +27,6 @@
   text-align: center;
   background-size: cover;
   background-position: center;
-}
-
-.pixel-art_border {
-  background-color: $light-lavander;
-  border: 5px solid $lavander;
-  height: 30vh;
-  padding-top: 50px;
-  padding-left: 15px;
-  padding-right: 15px;
-  box-shadow:   -15px 0 0 0 $violet,
-                 15px 0 0 0 $violet,
-                 0 -15px 0 0 $violet,
-                 0 15px 0 0 $violet;
 }
 
 .home_btn {

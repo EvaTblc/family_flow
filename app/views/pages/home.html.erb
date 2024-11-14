@@ -1,8 +1,7 @@
 <div class="homecontainer">
-
   <div class="title_home">
 
-    <div class= "pixel-art_border">
+    <div class= "pixel-art_border home-pixl-border">
       <h1>Family Flow</h1>
       <p class="slogan">La vie de famille<br>fluide et simplifiée</p>
     </div>
@@ -12,7 +11,7 @@
         <%= link_to "Continue", profile_user_path(current_user), class:"session_btn" %>
         <%= link_to "Exit", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vous déconnecter ?" }, class:"session_btn" %>
       <% else %>
-          <%= button_to "Connexion", new_user_session_path, class: "button-homepage"  %>
+          <%= button_to "Connexion", new_user_session_path, class:"session_btn"  %>
       <% end %>
     </div>
 
