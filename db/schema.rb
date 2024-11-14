@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_25_123258) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_14_130214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,8 +47,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_123258) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "creator_id"
-    t.index ["creator_id"], name: "index_organizations_on_creator_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -93,7 +91,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_25_123258) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "organizations", "users", column: "creator_id"
   add_foreign_key "tasks", "users"
   add_foreign_key "user_orgs", "organizations"
   add_foreign_key "user_orgs", "users"

@@ -6,3 +6,88 @@
                  0 -15px 0 0 $violet,
                  0 15px 0 0 $violet;
 }
+
+.top_page-pixl {
+  background-color: $light-lavander;
+  border-bottom: 5px solid $lavander;
+  box-shadow:   0 15px 0 0 $violet;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 40px;
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
+}
+
+.pixel-cards {
+  background-color: $lavander;
+  padding: 15px;
+  text-align: center;
+  font-family: $main;
+  font-size: 20px;
+}
+
+.cards-orga-infos {
+  background-color: $light-lavander;
+  border-radius: 20px;
+  clip-path: polygon(
+    0px 20px,
+    4px 20px,
+    4px 12px,
+    8px 12px,
+    8px 8px,
+    12px 8px,
+    12px 4px,
+    20px 4px,
+    20px 0px,
+    calc(100% - 20px) 0px,
+    calc(100% - 20px) 4px,
+    calc(100% - 12px) 4px,
+    calc(100% - 12px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 12px,
+    calc(100% - 4px) 12px,
+    calc(100% - 4px) 20px,
+    100% 20px,
+    100% 100%,
+    0px 100%
+);
+}

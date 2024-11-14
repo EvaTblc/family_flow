@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :user_orgs
   has_many :organizations, through: :user_orgs
-  has_many :organizations, foreign_key: :creator_id
 end

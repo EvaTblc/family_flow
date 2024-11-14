@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization
-  before_action :group_tasks
+  before_action :set_organization, except: [:index]
+  before_action :group_tasks, except: [:index]
+
+  def index
+    @organizations = current_user.organizations
+  end
   def new
     @organization = Organization.new
   end
@@ -45,7 +49,6 @@ class OrganizationsController < ApplicationController
 
   def group_tasks
     @tasks = []
-    @organization.creator.tasks.each { |task| @tasks << task }
     @organization.tasks.each { |task| @tasks << task }
   end
 

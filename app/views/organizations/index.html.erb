@@ -1,0 +1,25 @@
+<div class="top_page-pixl">
+  <h2 >Bonjour <%= current_user.username %></h2>
+  <p>Aujourd'hui nous sommes le <%= I18n.localize(Date.today) %></p>
+</div>
+
+<div class="maincontainer">
+  <% @organizations.each do |organization| %>
+    <div class="cards-orga-infos">
+      <div class="pixel-corners pixel-cards">
+        <%= link_to organization_path(organization) do %>
+          <%= organization.name %>
+        <% end %>
+      </div>
+      <%= pluralize(organization.users.count, 'membre', plural: 'membres') %>
+      <%= pluralize(organization.tasks.count, 'tâche', plural: 'tâches') %>
+      <% past_tasks = organization.tasks.select { |task| task.end.past? } %>
+      <% past_tasks.each do |task| %>
+        <%= task.title %>
+        <%= I18n.localize(task.end) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= link_to "Deconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vous déconnecter ?" } %>
+</div>
