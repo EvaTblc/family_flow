@@ -2,10 +2,10 @@ class Task < ApplicationRecord
   before_save :format_date
   belongs_to :user
 
-  CATEGORIES = ['RDV', 'Maison', 'Enfant', 'Courses', 'Administratif', 'Autres']
+  CATEGORIES = ['Maison', 'Administratif', 'Santé', 'Famille', 'Loisirs', 'Quotidien', 'Autres']
   validates :category, inclusion: { in: CATEGORIES }
   validates :start, timeliness: { on_or_before: lambda { Date.current }, type: :date }
-  validates :end, presence: true, comparison: { greater_than: :start }
+  validates :end, presence: true, comparison: { greater_than_or_equal_to: :start }
 
 
   def format_date
