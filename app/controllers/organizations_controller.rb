@@ -16,17 +16,13 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @uo = UserOrg.new
     users = User.all.reject { |user| user == User.find_by(email: current_user.email) }
     @username = []
     users.each { |user| @username << user.username }
 
-    @usersorgs = UserOrg.all.where(organization: @organization)
   end
 
   def destroy
-    users_orgz = User_orgs.where(organization: @organization)
-    users_orgz.each(&:delete)
     if @organization.delete
       redirect_to root_path
     end
