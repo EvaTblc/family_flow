@@ -1,7 +1,5 @@
 class Organization < ApplicationRecord
-  has_many :user_orgs
-  has_many :users, through: :user_orgs
-  has_many :tasks, through: :users
-
+  has_many :users
+  has_many :tasks, through: :user
 
 end

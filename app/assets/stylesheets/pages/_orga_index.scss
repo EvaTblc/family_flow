@@ -1,0 +1,27 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .user-welcome {
+    display: flex;
+    margin-top: 15px;
+    h2 {
+      margin-left: 8px;
+      margin-top: 8px;
+    }
+  }
+  p {
+    color: $blue;
+    margin-top: 5px;
+  }
+}
+
+.infos-organization {
+  display: flex;
+  flex-direction: column;
+  .infos {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+  }
+}

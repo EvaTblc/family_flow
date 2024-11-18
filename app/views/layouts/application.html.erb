@@ -16,7 +16,9 @@
       <%# ATTENTION - ALERTE ET NOTICE QUE L'ON NE PEUT SUPPR AVEC LA CROIX SUR SIMULATEUR MOBILE %>
       <%# <%= render "shared/flashes" %>
       <%= yield %>
-      <%= render "shared/navbar" %>
     </main>
+    <% unless current_page?(root_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
   </body>
 </html>

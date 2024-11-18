@@ -2,6 +2,9 @@
   height: 12vh;
   border-top: 5px solid $lavander;
   box-shadow:   0 0 0 15px $violet;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-container {
