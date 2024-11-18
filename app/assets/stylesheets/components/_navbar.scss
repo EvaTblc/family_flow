@@ -1,12 +1,13 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar_pixl {
+  height: 12vh;
+  border-top: 5px solid $lavander;
+  box-shadow:   0 0 0 15px $violet;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.footer-container {
+  background-color: $light-blue;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
