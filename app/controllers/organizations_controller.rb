@@ -2,9 +2,6 @@ class OrganizationsController < ApplicationController
   before_action :set_organization, except: [:index]
   before_action :group_tasks, except: [:index]
 
-  def index
-    @organizations = current_user.organizations
-  end
   def new
     @organization = Organization.new
   end
@@ -16,9 +13,6 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    users = User.all.reject { |user| user == User.find_by(email: current_user.email) }
-    @username = []
-    users.each { |user| @username << user.username }
 
   end
 
@@ -44,8 +38,7 @@ class OrganizationsController < ApplicationController
   end
 
   def group_tasks
-    @tasks = []
-    @organization.tasks.each { |task| @tasks << task }
+    @tasks = @organization.tasks
   end
 
   def params_org

@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
   has_many :users
-  has_many :tasks, through: :user
+  has_many :tasks, through: :users
 
 end

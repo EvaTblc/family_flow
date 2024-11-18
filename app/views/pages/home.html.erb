@@ -9,7 +9,7 @@
 
     <div class="home_btn">
       <% if current_user  %>
-          <%= link_to "Continue", organizations_path, class:"session_btn" %>
+          <%= link_to "Continue", organization_path(current_user.organization), class:"session_btn" %>
           <%= link_to "Exit", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vous déconnecter ?" }, class:"session_btn" %>
       <% else %>
           <%= button_to "Connexion", new_user_session_path, class:"session_btn"  %>
