@@ -1,0 +1,17 @@
+<div class="top_page-pixl">
+  <div class="exit_btn">
+  </div>
+  <div class="welcome">
+    <div class="user-welcome">
+      <%= link_to profile_user_path(current_user) do %>
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "icon_cat", class: "avatar" %>
+        <% end %>
+      <% end %>
+      <h2 >Bonjour <%= current_user.username %></h2>
+    </div>
+    <p>Aujourd'hui nous sommes le <em><%= I18n.localize(Date.today) %></em></p>
+  </div>
+</div>

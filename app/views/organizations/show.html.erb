@@ -1,70 +1,41 @@
-<div class="top_page-pixl">
-  <div class="welcome">
-    <div class="user-welcome">
-      <%= link_to profile_user_path(current_user) do %>
-        <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
-        <% else %>
-          <%= "No photo" %>
-        <% end %>
-      <% end %>
-      <h2 >Bonjour <%= current_user.username %></h2>
-
-    </div>
-    <p>Aujourd'hui nous sommes le <em><%= I18n.localize(Date.today) %></em></p>
-
-  </div>
-</div>
 
 <div class="maincontainer">
     <div class="cards-orga-infos">
       <div class="pixel-corners pixel-cards">
-        <%= link_to organization_path(@organization) do %>
-          <%= @organization.name %>
-        <% end %>
+        <h4><%= @organization.name %></h4>
       </div>
       <div class="infos-organization">
-        <div class="infos">
-          <div><i class="fa-solid fa-users" style="color: #b044f8;"></i> <%= @organization.users.count %></div>
-          <div><i class="fa-solid fa-square-check" style="color: #b044f8;"></i> <%= @organization.tasks.count %></div>
-          <%# <% past_tasks = organization.tasks.select { |task| task.end.past? } %>
-        </div>
 
+        <div class="infos" data-controller="toggle">
+
+          <div>
+            <button data-toggle-target="button" data-action="click->toggle#toggle">
+              <i class="fa-solid fa-users" style="color: #b044f8; margin-right: 10px;"></i><%= @organization.users.count %>
+            </button>
+            <%= render 'member_list' %>
+          </div>
+          <div><i class="fa-solid fa-square-check" style="color: #b044f8; margin-right: 10px;"></i> <%= @organization.tasks.count %></div>
+        </div>
       </div>
     </div>
 
+  <p>Liste des tâches</p>
+  <% @tasks.each do |task| %>
+    <%= link_to task_path(task) do %>
+      <%= task.title %>
+    <% end %>
+  <% end %>
+
+
+  <p>edit orga</p>
+  <%= simple_form_for @organization do |f| %>
+    <%= f.input :name %>
+    <%= f.input :password %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
-
-
-
-<%= @organization.name %> <br>
-
-<%= link_to "Home", root_path %> <br>
-<%= link_to "Supprimer cette organisation", organization_path(@organization), data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr de vouloir supprimer cette organisation ?"} %> <br>
-
 
   <%# <%= simple_form_for @organization do |f| %>
       <%# <%= f.input :user, label: "Ajouter un nouveau membre" %> %>
     <%# <%= f.button :submit %> %>
   <%# <% end %> %> %>
-
-
-
-<p>Les membres de la Famille</p>
-
-
-
-<p>Liste des tâches</p>
-<% @tasks.each do |task| %>
-  <%= link_to task_path(task) do %>
-    <%= task.title %>
-  <% end %>
-<% end %>
-
-
-<p>edit orga</p>
-<%= simple_form_for @organization do |f| %>
-  <%= f.input :name %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
-<% end %>

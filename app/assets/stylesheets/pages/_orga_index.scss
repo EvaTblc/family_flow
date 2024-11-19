@@ -1,13 +1,14 @@
 .welcome {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   .user-welcome {
     display: flex;
-    margin-top: 15px;
+    align-items: center;
+
     h2 {
-      margin-left: 8px;
-      margin-top: 8px;
+      margin-left: 20px;
+
     }
   }
   p {
@@ -23,5 +24,18 @@
     display: flex;
     justify-content: space-around;
     margin: 5px;
+    button {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+.member_organization {
+  display: flex;
+  flex-direction: column;
+  .user_org {
+    margin: 5px;
+
   }
 }
