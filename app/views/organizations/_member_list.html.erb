@@ -1,5 +1,5 @@
 
-  <div class="member_organization d-none" data-toggle-target="div">
+  <div class="member_organization">
     <% @organization.users.each do |user| %>
       <div class="user_org">
         <% if user.avatar.attached? %>
@@ -8,8 +8,12 @@
           <%= image_tag user.avatar, class: "avatar-mini" %>
         <% end %>
         <div>
-          <%= user.username %>
-          <%= user.email %>
+          <% if user != current_user %>
+            <%= user.username %>
+
+          <% else %>
+            <p>Vous</p>
+          <% end %>
         </div>
       </div>
     <% end %>

@@ -6,26 +6,12 @@
       </div>
       <div class="infos-organization">
 
-        <div class="infos" data-controller="toggle">
+        <div class="infos">
 
-          <div>
-            <button data-toggle-target="button" data-action="click->toggle#toggle">
-              <i class="fa-solid fa-users" style="color: #b044f8; margin-right: 10px;"></i><%= @organization.users.count %>
-            </button>
             <%= render 'member_list' %>
-          </div>
-          <div><i class="fa-solid fa-square-check" style="color: #b044f8; margin-right: 10px;"></i> <%= @organization.tasks.count %></div>
         </div>
       </div>
     </div>
-
-  <p>Liste des tâches</p>
-  <% @tasks.each do |task| %>
-    <%= link_to task_path(task) do %>
-      <%= task.title %>
-    <% end %>
-  <% end %>
-
 
   <p>edit orga</p>
   <%= simple_form_for @organization do |f| %>
@@ -37,5 +23,5 @@
 
   <%# <%= simple_form_for @organization do |f| %>
       <%# <%= f.input :user, label: "Ajouter un nouveau membre" %> %>
-    <%# <%= f.button :submit %> %>
-  <%# <% end %> %> %>
+    <%# <%= f.button :submit %>
+  <%# <% end %>
