@@ -1,5 +1,10 @@
-  <%= simple_form_for organization do |f| %>
-    <%= f.input :name, label: false %>
-    <%= f.input :address, label: false %>
-    <%= f.submit "Modifier" %>
+<%= form_with model: organization, class: "form", local: true do |f| %>
+  <%= f.text_field :name, class: "input_form" %>
+  <%= f.text_field :address, class: "input_form" %>
+  <%= f.submit "Modifier", class: "btn-form" %>
+
+  <%= link_to organization_path(organization) do %>
+    <i class="fa-regular fa-circle-xmark fa-xl" style="color: #CB9DF0;"></i>
   <% end %>
+  
+<% end %>

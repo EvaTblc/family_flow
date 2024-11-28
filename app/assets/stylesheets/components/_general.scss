@@ -7,21 +7,21 @@ a {
 }
 
 h1 {
-  font-family: $main;
+  font-family: $pixlmain;
   color: $dark-violet;
   font-weight: bold;
   font-size: 42px;
 }
 
 h2 {
-  font-family: $main;
+  font-family: $pixlmain;
   color: $dark-violet;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 38px;
 }
 
 h4 {
-  font-family: $text;
+  font-family: $pixlmain;
   color: $dark-violet;
   font-size: 24px;
 }
@@ -32,6 +32,12 @@ label {
   font-size: 18px;
 }
 
+p {
+  font-family: $main;
+  color: $dark-violet;
+  font-size: 16px;
+}
+
 .maincontainer {
   width: 100%;
   margin-bottom: 70px;
@@ -39,8 +45,4 @@ label {
   flex-direction: column;
   padding-right: 25px;
   padding-left: 25px;
-}
-
-.localization_user {
-  
 }

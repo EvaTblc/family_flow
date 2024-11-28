@@ -1,8 +1,8 @@
 
 <div class="maincontainer">
     <div class="cards-orga-infos" data-controller="toggle">
-      <div class="pixel-corners pixel-cards title_orga">
-        <div data-toggle-target="name">
+      <div class="pixel-corners pixel-cards">
+        <div data-toggle-target="name" class="title_orga">
           <h4><%= @organization.name %></h4>
           <button data-toggle-target="button" data-action="click->toggle#toggle">
             <i class="fa-solid fa-pen" style="color: #9927f7;"></i>
@@ -18,6 +18,8 @@
           <%= render 'member_list' %>
         </div>
       </div>
-
     </div>
+
+
+
 </div>

@@ -1,0 +1,20 @@
+.form {
+  .input_form {
+    border-radius: 25px;
+    border: none;
+    color: grey;
+    margin: 3px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .btn-form {
+    margin-top: 5px;
+    background-color: $violet;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-family: $pixlmain;
+    width: 50%;
+  }
+}

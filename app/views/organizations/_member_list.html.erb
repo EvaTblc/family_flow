@@ -1,4 +1,3 @@
-
   <div class="member_organization">
     <% @organization.users.each do |user| %>
       <div class="user_org">
@@ -8,13 +7,11 @@
           <%= image_tag user.avatar, class: "avatar-mini" %>
         <% end %>
         <div>
-          <% if user != current_user %>
-            <%= user.username %>
-
-          <% else %>
-            <p>Vous</p>
-          <% end %>
+          <%= user != current_user ? user.username : "Vous"  %>
         </div>
       </div>
     <% end %>
   </div>
+
+<%# MEMBRES +> CHAT %>
+<%= @other_users.first.username %>

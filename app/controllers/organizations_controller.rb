@@ -13,7 +13,8 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-
+    @message = Message.new
+    @other_users = @organization.users.where.not(username: current_user.username)
   end
 
   def destroy
@@ -32,8 +33,6 @@ class OrganizationsController < ApplicationController
       render :show, status: :unprocessable_entity
     end
   end
-
-
 
   private
 

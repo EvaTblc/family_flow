@@ -11,9 +11,11 @@
   background-color: $light-lavander;
   border-bottom: 5px solid $lavander;
   box-shadow:   0 15px 0 0 $violet;
+  height: 20vh;
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 40px;
+  padding-top: 20px;
   .exit_btn {
     display: flex;
     justify-content: flex-end;
@@ -95,4 +97,15 @@
     100% 100%,
     0px 100%
 );
+}
+
+.icon-meteo {
+  position: absolute;
+  bottom: 0;
+  top: 80px;
+  img {
+    background: $light-lavander;
+    border-radius: 50%;
+    height: 40px;
+  }
 }
