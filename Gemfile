@@ -46,3 +46,4 @@ gem "cloudinary"
 gem "dotenv-rails"
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 gem 'bcrypt'
+gem "geocoder"

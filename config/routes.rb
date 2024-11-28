@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :tasks, only: [:index, :show, :create, :update]
-  resources :organizations, only: [:new, :create, :show, :destroy, :update]
+  resources :organizations, only: [:new, :create, :show, :destroy, :edit, :update]
 
   resources :users, only: [:index] do
     member do

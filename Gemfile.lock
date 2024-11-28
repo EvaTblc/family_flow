@@ -148,6 +148,7 @@ GEM
     ffi (1.17.0-x86_64-linux-musl)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hotwire-livereload (1.4.1)
@@ -361,6 +362,7 @@ DEPENDENCIES
   dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
+  geocoder
   hotwire-livereload
   importmap-rails
   jbuilder

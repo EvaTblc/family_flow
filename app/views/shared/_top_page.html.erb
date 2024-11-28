@@ -12,6 +12,10 @@
       <% end %>
       <h2 >Bonjour <%= current_user.username %></h2>
     </div>
-    <p>Aujourd'hui nous sommes le <em><%= I18n.localize(Date.today) %></em></p>
+    <div class="localization_user">
+      <p>Aujourd'hui nous sommes le <em><%= I18n.localize(Date.today) %></em></p>
+      <%= "A #{current_user.organization.address.split(",").last} il fait #{current_user.organization.meteo[:temp]}°C" %>
+      <%= image_tag current_user.organization.meteo[:icon] %>
+    </div>
   </div>
 </div>

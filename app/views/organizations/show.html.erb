@@ -1,27 +1,23 @@
 
 <div class="maincontainer">
-    <div class="cards-orga-infos">
-      <div class="pixel-corners pixel-cards">
-        <h4><%= @organization.name %></h4>
-      </div>
-      <div class="infos-organization">
-
-        <div class="infos">
-
-            <%= render 'member_list' %>
+    <div class="cards-orga-infos" data-controller="toggle">
+      <div class="pixel-corners pixel-cards title_orga">
+        <div data-toggle-target="name">
+          <h4><%= @organization.name %></h4>
+          <button data-toggle-target="button" data-action="click->toggle#toggle">
+            <i class="fa-solid fa-pen" style="color: #9927f7;"></i>
+          </button>
+        </div>
+        <div data-toggle-target="div" class="d-none">
+          <%= render "shared/form", organization: @organization %>
         </div>
       </div>
+
+      <div class="infos-organization">
+        <div class="infos">
+          <%= render 'member_list' %>
+        </div>
+      </div>
+
     </div>
-
-  <p>edit orga</p>
-  <%= simple_form_for @organization do |f| %>
-    <%= f.input :name %>
-    <%= f.input :password %>
-    <%= f.button :submit %>
-  <% end %>
 </div>
-
-  <%# <%= simple_form_for @organization do |f| %>
-      <%# <%= f.input :user, label: "Ajouter un nouveau membre" %> %>
-    <%# <%= f.button :submit %>
-  <%# <% end %>

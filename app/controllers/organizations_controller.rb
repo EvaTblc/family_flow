@@ -22,14 +22,18 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if @organization.update(params_org)
       redirect_to organization_path(@organization)
     else
-      redirect_to organization_path(@organization)
-      # FAUT CHANGER CA AVEC UNE ALERT
+      render :show, status: :unprocessable_entity
     end
   end
+
+
 
   private
 
@@ -42,6 +46,6 @@ class OrganizationsController < ApplicationController
   end
 
   def params_org
-    params.require(:organization).permit(:name, :password)
+    params.require(:organization).permit(:name, :address)
   end
 end
