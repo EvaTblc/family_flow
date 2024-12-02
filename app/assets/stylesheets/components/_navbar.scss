@@ -2,8 +2,8 @@
   height: 12vh;
   border-top: 5px solid $lavander;
   box-shadow:   0 0 0 15px $violet;
-  position: sticky;
-  bottom: 0;
+  position: fixed;
+  top: calc(100vh - 12vh);
   width: 100%;
 }
 

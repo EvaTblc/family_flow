@@ -15,7 +15,27 @@
 
       <div class="infos-organization">
         <div class="infos">
-          <%= render 'member_list' %>
+          <div class="member_organization">
+            <div class="user_org">
+              <% @other_users.each do |user| %>
+                <div class="user_info">
+                  <% if user.avatar.attached? %>
+                    <%= cl_image_tag user.avatar.key, class: "avatar-mini" %>
+                  <% else %>
+                    <%= image_tag user.avatar, class: "avatar-mini" %>
+                  <% end %>
+                    <p><%= user.username %></p>
+                </div>
+                <% messages = @messages_users.where(user: user) %>
+                <div class="contentmessage" id="last_message">
+                <%= turbo_stream_from "last_message" do %>
+                    <%= render "last_message", message: messages.last %>
+                <% end %>
+              <% end %>
+            </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -30,16 +30,23 @@
 .member_organization {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: center;
   .user_org {
+    width: 100%;
     margin: 5px;
     margin-left: 10px;
     gap: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
+  .user_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+  }
+
   p {
     height: 25px;
     margin-bottom: 0px;
@@ -62,5 +69,22 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+
+.contentmessage {
+  width: 100%;
+  height: 100%;
+  color: $dark-violet;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 5px;
+  background-color: #ffefdf;
+  padding: 10px;
+  border-radius: 20px;
+  i {
+    color: $blue;
   }
 }

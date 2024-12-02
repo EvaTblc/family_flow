@@ -1,0 +1,7 @@
+
+<%= turbo_frame_tag message do %>
+<div class="last_message_user" id="last_message">
+      <i><%= I18n.localize(message.created_at, format: "%d/%m/%Y à %H:%M") %></i>
+      <strong><%= message.content %></strong>
+    </div>
+<% end %>
