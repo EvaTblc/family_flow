@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 # BASE GEMS
 ruby "3.1.2"
-gem "rails", "~> 7.1.4", ">= 7.1.4.1"
+gem "rails", "~> 7.2.0"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
@@ -47,3 +47,4 @@ gem "dotenv-rails"
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 gem 'bcrypt'
 gem "geocoder"
+gem "solid_cable", "~> 3.0.2"

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   has_many :tasks
-
+  has_many :messages, through: :organization
   belongs_to :organization
 
   private

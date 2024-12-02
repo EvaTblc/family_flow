@@ -17,7 +17,7 @@ export default class extends Controller {
       const mois = String(date.getMonth() + 1).padStart(2, '0');
       const annee = date.getFullYear();
 
-      return `${jour}-${mois}-${annee}`;
+      return `${jour}/${mois}/${annee}`;
     }
     const dateNow = formatDate(new Date(Date.now()));
 

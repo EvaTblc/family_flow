@@ -10,9 +10,9 @@ class MessagesController < ApplicationController
     @message.organization = @organization
     @message.user = current_user
     if @message.save
-      redirect_to organization_path(@organization)
+      redirect_to new_organization_message_path(@organization)
     else
-      render "organizations/show", status: :unprocessable_entity
+      render "messages/new", status: :unprocessable_entity
     end
   end
 

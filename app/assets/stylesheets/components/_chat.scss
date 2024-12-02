@@ -1,5 +1,4 @@
 .chat {
-  background: white;
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
@@ -13,18 +12,75 @@
     padding: 1rem;
   }
 
-  .messages {
-    height: 100%;
-    overflow: scroll;
-    padding: 1rem;
+  .message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
   }
 
-  #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
+  .message-info {
+    opacity: 0.5;
+    text-align: center;
+    width: fit-content;
+  }
 
-    .form-group {
-      margin-bottom: 0;
+  .message-content {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    max-width: 70%;
+    width: fit-content;
+    word-wrap: break-word;
+  }
+
+  .message.sent .message-content {
+    align-self: flex-start;
+    background: $dark-violet;
+    color: $light-gray;
+    min-width: 10vh;
+    text-align: center;
+  }
+
+  .message.received .message_content_align  {
+    align-self: flex-end;
+  }
+
+  .message.received .message-content {
+    align-self: flex-end;
+    background: $light-lavander;
+    min-width: 10vh;
+    text-align: center;
+    color: $blue;
+  }
+
+  .form_chat {
+    position: sticky;
+    bottom: 100px;
+    .btn_chat {
+      background-color: $dark-violet;
+      color: $light-lavander;
+      width: 20%;
+      height: 78%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border: none;
+      font-family: $pixlmain;
     }
+  }
+}
+
+.last_message_user {
+  width: 100%;
+  color: $dark-violet;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 5px;
+  background-color: #ffefdf;
+  padding: 10px;
+  border-radius: 20px;
+  i {
+    color: $blue;
   }
 }

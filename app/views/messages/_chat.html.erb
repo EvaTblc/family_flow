@@ -1,6 +1,4 @@
 <div class="container chat">
-<h3>ici un chat</h3>
-
   <%= turbo_stream_from "organization_#{organization.id}_messages" %>
   <div id="messages" class="messages">
     <% organization.messages.each do |message| %>
@@ -9,7 +7,7 @@
   </div>
 
   <%= simple_form_for [organization, @message],
-     html: {class: "d-flex",
+     html: {class: "d-flex form_chat",
          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
   %>
     <% other_user = User.where.not(username: current_user.username).first %>
@@ -18,6 +16,8 @@
       placeholder: "Message à #{other_user.username}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<%= button_tag type: 'submit', class: "btn_chat" do %>
+  <i class="fa-solid fa-paper-plane fa-xl" style="color: #B197FC;"></i>
+<% end %>
   <% end %>
 </div>

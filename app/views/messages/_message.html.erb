@@ -3,9 +3,11 @@
     class="message <%= message.user === user ? 'sent' : 'received' %>"
     data-controller="message"
     data-message-user-id-value="<%= message.user.id %>">
-  <small class="message-info">
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p class="message-content"><%= message.content %></p>
+    <div class="message_content_align">
+      <small class="message-info">
+        <strong><%= message.user.username %></strong>
+        <i><%=  I18n.localize(message.created_at, format: "%d/%m/%Y à %H:%M")  %></i>
+      </small>
+      <p class="message-content"><%= message.content %></p>
+    </div>
 </div>
