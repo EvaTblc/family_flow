@@ -1,6 +1,6 @@
 <div
     id="message-<%= message.id %>"
-    class="message <%= message.user === user ? 'sent' : 'received' %>"
+    class="message <%= message.user == user ? 'sent' : 'received' %>"
     data-controller="message"
     data-message-user-id-value="<%= message.user.id %>">
     <div class="message_content_align">

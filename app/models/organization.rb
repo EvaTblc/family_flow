@@ -13,9 +13,8 @@ class Organization < ApplicationRecord
     meteo_serialized = URI.parse(url).read
     meteo = JSON.parse(meteo_serialized)
     icon = meteo['weather'].first['icon']
-    @icon_url = "https://openweathermap.org/img/w/#{icon}.png"
-    @temp = meteo['main']['temp']
 
     {temp: meteo['main']['temp'], icon: "https://openweathermap.org/img/w/#{icon}.png"}
+    
   end
 end

@@ -1,4 +1,5 @@
 
+<%= render "shared/top_page" %>
 <div class="maincontainer">
   <div class="cards-orga-infos" data-controller="toggle">
     <div class="pixel-corners pixel-cards">
@@ -28,10 +29,8 @@
               </div>
               <% messages = @messages_users.where(user: user) %>
               <%= turbo_stream_from "organization_#{@organization.id}_latest_message" %>
-              <div id="organization_<%= @organization.id %>_latest_message">
-                <div class="contentmessage">
-                  <%= render "messages/latest_message", message: messages.last %>
-                </div>
+              <div class="contentmessage" id="organization_<%= @organization.id %>_latest_message">
+                <%= render "messages/latest_message", message: messages.last %>
               </div>
             <% end %>
           </div>

@@ -12,6 +12,10 @@
     padding: 1rem;
   }
 
+  .messages {
+    height: 100%;
+  }
+  
   .message {
     display: flex;
     flex-direction: column;
@@ -68,8 +72,4 @@
       font-family: $pixlmain;
     }
   }
-}
-
-.last_message_user {
-
 }

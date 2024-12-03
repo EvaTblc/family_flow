@@ -12,6 +12,7 @@
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
   </head>
 
   <body>
@@ -19,7 +20,7 @@
       <%# ATTENTION - ALERTE ET NOTICE QUE L'ON NE PEUT SUPPR AVEC LA CROIX SUR SIMULATEUR MOBILE %>
       <%# <%= render "shared/flashes" %>
       <% if user_signed_in? %>
-        <%= render "shared/top_page" %>
+
       <% end %>
       <%= yield %>
     </main>
