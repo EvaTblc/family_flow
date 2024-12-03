@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   static targets = ["iconMeteo"]
+
   connect() {
     this.iconMeteoTarget.innerHTML = `<img src="${this.iconValue}" alt=""></img>`
 

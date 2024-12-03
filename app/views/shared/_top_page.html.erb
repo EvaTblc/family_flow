@@ -2,7 +2,7 @@
 
   <div class="welcome" data-controller="typed"
     data-typed-address-value=<%= current_user.organization.address.split(",").last %>
-    data-typed-temp-value=<%= current_user.organization.meteo[:temp] %>
+    data-typed-temp-value=<%= current_user.organization.meteo[:temp].round(1) %>
     data-typed-icon-value=<%= current_user.organization.meteo[:icon] %>>
 
     <div class="user-welcome">
@@ -13,7 +13,7 @@
           <%= image_tag "icon_cat", class: "avatar" %>
         <% end %>
       <% end %>
-      <h2 >Bonjour <%= current_user.username %></h2>
+      <h2 >Bonjour <br> <%= current_user.username %></h2>
     </div>
 
     <div class="icon-meteo" data-typed-target="iconMeteo"></div>

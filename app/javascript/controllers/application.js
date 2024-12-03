@@ -7,3 +7,7 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+document.addEventListener("turbo:stream-connected", (event) => {
+  console.log("Turbo Stream connecté au canal :", event.target.dataset.channel);
+});

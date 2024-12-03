@@ -1,45 +1,43 @@
 
 <div class="maincontainer">
-    <div class="cards-orga-infos" data-controller="toggle">
-      <div class="pixel-corners pixel-cards">
-        <div data-toggle-target="name" class="title_orga">
-          <h4><%= @organization.name %></h4>
-          <button data-toggle-target="button" data-action="click->toggle#toggle">
-            <i class="fa-solid fa-pen" style="color: #9927f7;"></i>
-          </button>
-        </div>
-        <div data-toggle-target="div" class="d-none">
-          <%= render "shared/form", organization: @organization %>
-        </div>
+  <div class="cards-orga-infos" data-controller="toggle">
+    <div class="pixel-corners pixel-cards">
+      <div data-toggle-target="name" class="title_orga">
+        <h4><%= @organization.name %></h4>
+        <button data-toggle-target="button" data-action="click->toggle#toggle">
+          <i class="fa-solid fa-pen" style="color: #9927f7;"></i>
+        </button>
       </div>
-
-      <div class="infos-organization">
-        <div class="infos">
-          <div class="member_organization">
-            <div class="user_org">
-              <% @other_users.each do |user| %>
-                <div class="user_info">
-                  <% if user.avatar.attached? %>
-                    <%= cl_image_tag user.avatar.key, class: "avatar-mini" %>
-                  <% else %>
-                    <%= image_tag user.avatar, class: "avatar-mini" %>
-                  <% end %>
-                    <p><%= user.username %></p>
-                </div>
-                <% messages = @messages_users.where(user: user) %>
-                <div class="contentmessage" id="last_message">
-                <%= turbo_stream_from "last_message" do %>
-                    <%= render "last_message", message: messages.last %>
-                <% end %>
-              <% end %>
-            </div>
-            </div>
-          </div>
-
-        </div>
+      <div data-toggle-target="div" class="d-none">
+        <%= render "shared/form", organization: @organization %>
       </div>
     </div>
 
+    <div class="infos-organization">
+      <div class="infos">
+        <div class="member_organization">
+          <div class="user_org">
+            <% @other_users.each do |user| %>
+              <div class="user_info">
+                <% if user.avatar.attached? %>
+                  <%= cl_image_tag user.avatar.key, class: "avatar-mini" %>
+                <% else %>
+                  <%= image_tag user.avatar, class: "avatar-mini" %>
+                <% end %>
+                  <p><%= user.username %></p>
+              </div>
+              <% messages = @messages_users.where(user: user) %>
+              <%= turbo_stream_from "organization_#{@organization.id}_latest_message" %>
+              <div id="organization_<%= @organization.id %>_latest_message">
+                <div class="contentmessage">
+                  <%= render "messages/latest_message", message: messages.last %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-
+    </div>
+  </div>
 </div>

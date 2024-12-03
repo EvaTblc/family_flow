@@ -1,0 +1,8 @@
+<div id="latest-message">
+    <% if message.present? %>
+      <i><%= I18n.localize(message.created_at, format: "%d/%m/%Y à %H:%M") %></i>
+      <strong><%= message.content %></strong>
+    <% else %>
+      <p>Pas de nouveaux messages</p>
+    <% end %>
+</div>
