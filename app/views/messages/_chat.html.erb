@@ -1,22 +1,24 @@
-<div class="container chat">
+<div class="container chat" data-controller="scroll">
   <%= turbo_stream_from "organization_#{organization.id}_messages" %>
-  <div id="messages" class="messages">
+  <div id="messages" class="messages" data-scroll-target="messages">
     <% organization.messages.each do |message| %>
       <%= render "messages/message", message: message, user: current_user %>
     <% end %>
   </div>
 
-  <%= simple_form_for [organization, @message],
-     html: {class: "d-flex form_chat",
-         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|%>
-    <% other_user = User.where.not(username: current_user.username).first %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message à #{other_user.username}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= button_tag type: 'submit', class: "btn_chat" do %>
-      <i class="fa-solid fa-paper-plane fa-xl" style="color: #B197FC;"></i>
-    <% end %>
-  <% end %>
-</div>
+<%= form_with model: [organization, @message],
+      html: { class: "form_chat",
+              data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset scroll#update" } },
+      local: true do |f| %>
+  <% other_user = User.where.not(username: current_user.username).first %>
+    <div class= "form-shadow">
+      <div class="flex-grow-1">
+        <%= f.text_area :content,
+              placeholder: "Message à #{other_user.username}",
+              class: "form-control" %>
+      </div>
+      <%= button_tag type: 'submit', class: "btn_chat" do %>
+        <i class="fa-solid fa-paper-plane fa-xl" style="color: #B197FC;"></i>
+      <% end %>
+    </div>
+<% end %>
