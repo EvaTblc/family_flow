@@ -20,10 +20,11 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  .exit_btn {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 8px;
+
+  .link_edit {
+    margin-top: 3rem;
+    margin-left: 5%;
+    color: $violet;
   }
 }
 

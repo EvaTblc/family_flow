@@ -40,6 +40,7 @@
     flex-direction: row;
     align-items: center;
   }
+
   .user_info {
     display: flex;
     flex-direction: column;
@@ -64,11 +65,13 @@
   }
   button {
     border: none;
-    background-color: $light-lavander;
+    background-color: #ebd6e4;
     border-radius: 50%;
+    padding-top: 3%;
+    width: 15%;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: 0px;
   }
 }
 
@@ -86,5 +89,39 @@
   border-radius: 20px;
   i {
     color: $blue;
+  }
+}
+
+.part_tasks {
+  margin-top: 1rem;
+}
+
+.tasks {
+  .task {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.task_organization {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .task_org {
+    width: 100%;
+    margin: 5px;
+    margin-left: 10px;
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .detail_task{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    align-items: flex-start;
+    line-height: 1.8;
   }
 }

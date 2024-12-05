@@ -2,18 +2,21 @@
 
   <div class="welcome" data-controller="typed"
     data-typed-address-value=<%= current_user.organization.address.split(",").last %>
-    data-typed-temp-value=<%= current_user.organization.meteo[:temp].round(1) %>
+    data-typed-temp-value=<%= current_user.organization.meteo[:temp].round(0) %>
     data-typed-icon-value=<%= current_user.organization.meteo[:icon] %>>
 
     <div class="user-welcome">
-      <%= link_to profile_user_path(current_user) do %>
+
         <% if current_user.avatar.attached? %>
           <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
         <% else %>
           <%= image_tag "icon_cat", class: "avatar" %>
         <% end %>
-      <% end %>
+
       <h2 >Bonjour <br> <%= current_user.username %></h2>
+      <%= link_to edit_user_registration_path, class: "link_edit" do %>
+        <i class="fi fi-rr-edit"></i>
+      <% end %>
     </div>
 
     <div class="icon-meteo" data-typed-target="iconMeteo"></div>

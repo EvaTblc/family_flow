@@ -1,0 +1,72 @@
+<%= render "shared/top_page" %>
+
+<div class="maincontainer">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email, required: true,
+                          autofocus: true,
+                          label: false %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  label: false %>
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  label: false %>
+      <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  label: false %>
+      <%= f.input :phone_number,
+                  required: false,
+                  autofocus: true,
+                  label: false %>
+      <div class="custom-file-wrapper">
+        <%= f.input :avatar,
+                    as: :file,
+                    required: true,
+                    autofocus: true,
+                    label: false,
+                    input_html: { class: 'custom-file-hidden', id: 'avatar-input' } %>
+        <label for="avatar-input" class="custom-file-label">
+          Sélectionnez une photo
+        </label>
+      </div>
+      <%= f.input :current_password,
+                  hint: "On a besoin de ton mot de passe actuel pour confirmer les changements",
+                  required: true,
+                  input_html: { autocomplete: "current-password" },
+                  placeholder: "🔑"%>
+      <%= f.input :password,
+                  hint: "Laisse le vide si tu ne veux pas changer de mot de passe",
+                  required: false,
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: "🔑",
+                  label: "Nouveau mot de passe" %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: "🔑",
+                  label: "Confirmation du nouveau mot de passe" %>
+    </div>
+
+    <div>
+      <%= f.button :submit, "Modifier", class:"form-actions" %>
+    </div>
+  <% end %>
+
+  <div class="unhappy">
+    <div class="icon_unhappy">
+      <i class="fi fi-ss-sad" style="color: #B197FC;font-size: 18px;"></i> <p> <strong> ?</strong></p>
+    </div>
+    <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sûr ?", turbo_confirm: "Êtes vous sûr ?" }, method: :delete %>
+  </div>
+</div>

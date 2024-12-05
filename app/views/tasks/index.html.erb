@@ -1,32 +1,9 @@
-<h1>TACHES</h1>
-
-<% @tasks.each do |task| %>
-  <%= link_to task_path(task) do %>
-    <%= task.title %>
-  <% end %>
-<% end %>
-
-<div data-controller ="date-form", data-today = <%= Date.today %> >
-  <%= form_with model: @task, method: :post, html: {class: "", data: {date_form_target: "form"}} do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_field :description %>
-    <%= f.select :category, Task::CATEGORIES %>
-    <%= f.date_field :start,
-                    html5: true,
-                    value: params[:query],
-                    data: {
-                      date_form_target: "start",
-                    } %>
-    <%= f.date_field :end,
-                        html5: true,
-                        value: params[:query],
-                        data: {
-                          date_form_target: "end",
-                        } %>
-    <%= f.check_box :priority, label: "Urgent?" %>
-    <%# <%= f.????? :recurrence %>
-    <%= button_tag :submit %>
+<div class="maincontainer">
+  <h1>TACHES</h1>
+  <% @tasks.each do |task| %>
+    <%= link_to task_path(task) do %>
+      <%= task.title %>
+    <% end %>
   <% end %>
 </div>
-
 

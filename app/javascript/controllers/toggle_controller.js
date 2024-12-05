@@ -8,4 +8,8 @@ export default class extends Controller {
     this.divTarget.classList.toggle("d-none");
     this.nameTarget.classList.toggle("d-none");
   }
+
+  toggleEdit() {
+    this.divTarget.classList.toggle("d-none");
+  }
 }

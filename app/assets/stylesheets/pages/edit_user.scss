@@ -1,0 +1,91 @@
+.form-control.is-valid {
+  border-color: $dark-violet;
+  background-image: asset_url('checked.png');
+}
+
+input[type="text"]:not(:placeholder-shown) {
+  color: $dark-violet;
+}
+
+input[type="email"]:not(:placeholder-shown) {
+  color: $dark-violet;
+}
+
+input[type="tel"]:not(:placeholder-shown) {
+  color: $dark-violet;
+}
+
+.form-text {
+  font-style: italic;
+  color: $violet;
+}
+
+.form-actions {
+  width: 100%;
+  display: inline-block;
+  background-color: #9927f7;
+  color: #ebd6e4;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: $text;
+  color: $light-lavander;
+  font-size: 18px;
+  margin-bottom: 1rem;
+  &:hover {
+    background-color: $violet;
+    color: $light-lavander;
+  }
+}
+
+.custom-file-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.custom-file-hidden {
+  display: none;
+}
+
+.custom-file-label {
+  width: 100%;
+  display: inline-block;
+  background-color: $dark-violet;
+  color: $light-lavander;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.custom-file-label:hover {
+  background-color: $violet;
+}
+
+.custom-file-label:active {
+  background-color: $dark-violet;
+}
+
+.unhappy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+
+  a {
+    margin-left: 5%;
+    color: $violet;
+  }
+
+  .icon_unhappy {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    p {
+      margin-left: 10%;
+      font-size: 21px;
+      color: $violet;
+    }
+  }
+}

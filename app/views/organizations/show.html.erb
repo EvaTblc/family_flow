@@ -1,19 +1,19 @@
 
 <%= render "shared/top_page" %>
 <div class="maincontainer">
+
   <div class="cards-orga-infos" data-controller="toggle">
     <div class="pixel-corners pixel-cards">
       <div data-toggle-target="name" class="title_orga">
         <h4><%= @organization.name %></h4>
         <button data-toggle-target="button" data-action="click->toggle#toggle">
-          <i class="fa-solid fa-pen" style="color: #9927f7;"></i>
+        <i class="fi fi-rr-edit" style="color: #9927f7; margin-top: 2%;"></i>
         </button>
       </div>
       <div data-toggle-target="div" class="d-none">
         <%= render "shared/form", organization: @organization %>
       </div>
     </div>
-
     <div class="infos-organization">
       <div class="infos">
         <div class="member_organization">
@@ -36,7 +36,40 @@
           </div>
         </div>
       </div>
-
     </div>
+
+  <div class="cards-orga-infos part_tasks" data-controller="toggle">
+    <div class="pixel-corners pixel-cards">
+      <div data-toggle-target="name" class="title_orga">
+        <h4>Tâches</h4>
+        <button data-toggle-target="button" data-action="click->toggle#toggle">
+        <i class="fi fi-rr-edit" style="color: #9927f7; margin-top: 2%;"></i>
+        </button>
+      </div>
+      <div data-toggle-target="div" class="d-none">
+        <%= render "shared/form", organization: @organization %>
+      </div>
+    </div>
+    <div class="infos-organization tasks">
+      <div class="infos">
+        <div class="task_organization">
+          <div class="task_org">
+            <div class="user_info detail_task">
+              <% @organization.tasks.first(5).each do |task| %>
+              <div class="task">
+                <%= link_to task_path(task) do %>
+                  <%= task.title %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
+
+
 </div>
