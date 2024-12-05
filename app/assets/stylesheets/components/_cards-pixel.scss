@@ -8,7 +8,8 @@
 }
 
 .top_page-pixl {
-  background-color: $light-lavander;
+  background-color: $light-blue;
+  color: $violet;
   border-bottom: 5px solid $lavander;
   box-shadow: 0 15px 0 0 $violet;
   height: 10rem;
@@ -107,8 +108,14 @@
   bottom: 0;
   top: 80px;
   img {
-    background: $light-lavander;
+    background: $light-blue;
     border-radius: 50%;
     height: 40px;
+  }
+}
+
+.localization_user {
+  p {
+    font-family: $pixlmain;
   }
 }

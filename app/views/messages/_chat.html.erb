@@ -1,3 +1,7 @@
+<div class="header_chat">
+      <i class="fi fi-rs-comment-smile"></i>
+    <h2><%= @organization.name %></h2>
+</div>
 <div class="container chat" data-controller="scroll">
   <%= turbo_stream_from "organization_#{organization.id}_messages" %>
   <div id="messages" class="messages" data-scroll-target="messages">
@@ -14,7 +18,7 @@
     <div class= "form-shadow">
       <div class="flex-grow-1">
         <%= f.text_area :content,
-              placeholder: "Message à #{other_user.username}",
+              placeholder: "Envoyer un message",
               class: "form-control" %>
       </div>
       <%= button_tag type: 'submit', class: "btn_chat" do %>

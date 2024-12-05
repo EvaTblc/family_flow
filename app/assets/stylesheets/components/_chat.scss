@@ -1,3 +1,28 @@
+.header_chat {
+  background-color: #dbeffd;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  box-shadow: 0px 4px #F0C1E1;
+  width: 100%;
+  z-index: 99;
+
+  h2 {
+    font-family: $pixlmain;
+    margin-left: 5%;
+    color: $violet;
+  }
+
+  i {
+    font-size: 24px;
+    font-family: $pixlmain;
+    color: $violet;
+  }
+}
+
 .chat {
   margin-top: 9px;
   height: calc(100vh - 75px);
@@ -61,7 +86,7 @@
 }
 
 .form_chat {
-  height: 30%;
+  height: 15%;
   align-items: center;
   padding: 0.5rem;
   z-index: 10;
@@ -70,14 +95,23 @@
   .form-shadow {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    position: fixed;
+    bottom: 15%;
+    width: 90%;
+  }
+
+  .form-control {
+    color: $lavander
+  }
+
+  input::placeholder {
+    color: red
   }
 
   .btn_chat {
-    height: 70%;
     width: 20%;
     border: none;
-    background-color: $light-lavander;
+    background-color: #ebd6e4;
     border-top-right-radius: 20%;
   }
 }

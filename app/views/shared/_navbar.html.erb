@@ -3,27 +3,27 @@
     <div class="footer-container">
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
         <%= link_to tasks_path do %>
-          <i class="fa-solid fa-list-check fa-2xl" style="color: #B197FC;"></i>
+          <i class="fi fi-br-list-check" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
         <%= link_to "#" do %>
-          <i class="fa-solid fa-calendar-days fa-2xl" style="color: #B197FC;"></i>
+          <i class="fi fi-bs-daily-calendar" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
         <%= link_to organization_path(current_user.organization) do %>
-          <i class="fi fi-tr-family-dress" style="color: #B197FC;"></i>
+          <i class="fi fi-ss-family" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
         <%= link_to new_organization_message_path(current_user.organization) do %>
-          <i class="fa-solid fa-comment fa-2xl" style="color: #B197FC;"></i>
+          <i class="fi fi-br-phone-heart-message" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>
         <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
           <%= link_to destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vous déconnecter ?" } do %>
-            <i class="fa-solid fa-arrow-right-from-bracket fa-2xl" style="color: #B197FC;"></i>
+            <i class="fi fi-br-sign-out-alt" style="color: #B197FC; font-size: 32px;"></i>
           <% end %>
         </div>
     </div>
