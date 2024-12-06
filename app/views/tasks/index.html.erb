@@ -1,9 +1,32 @@
+<%# <div class="header_tasks">
+  <h2></h2>
+</div> %>
 <div class="maincontainer">
-  <h1>TACHES</h1>
-  <% @tasks.each do |task| %>
-    <%= link_to task_path(task) do %>
-      <%= task.title %>
-    <% end %>
-  <% end %>
-</div>
 
+  <div class="link_add_task" data-controller="toggle">
+    <button data-toggle-target="button" data-action="click->toggle#toggleEdit">
+      <i class="fa-solid fa-plus" style="color: #9927f7;"></i>
+    </button>
+    <div class="div d-none" data-toggle-target="div">
+      <%= render "task_form", task: @task %>
+    </div>
+  </div>
+
+  <div class="index_tasks">
+    <% @tasks.each do |task| %>
+      <%= link_to task_path(task) do %>
+        <div class="task_line">
+          <div class="task_title"><%= task.title %></div>
+          <% if task.status == false %>
+            <i class="fa-regular fa-square-check fa-lg"></i>
+          <% else %>
+            <i class="fa-solid fa-square-check fa-lg"></i>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+
+</div>

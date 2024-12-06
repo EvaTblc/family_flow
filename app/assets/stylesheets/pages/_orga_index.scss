@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
+    margin-top: 2%;
   }
 
   p {
@@ -67,7 +67,8 @@
     border: none;
     background-color: #ebd6e4;
     border-radius: 50%;
-    padding-top: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     width: 15%;
     position: absolute;
     top: -5px;
@@ -106,22 +107,41 @@
 .task_organization {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   .task_org {
     width: 100%;
-    margin: 5px;
-    margin-left: 10px;
     gap: 5px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
   }
-  .detail_task{
+
+  .detail_task {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-    align-items: flex-start;
-    line-height: 1.8;
+    width: 100%;
+
+    &:nth-child(1), &:nth-child(2) {
+      border-right: 1px solid $violet;
+    }
+
+    .number {
+      font-size: 24px;
+      font-family: $pixlmain;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+
+    .descr {
+      font-size: 14px;
+      text-align: center;
+      font-family: $text;
+      color: $violet;
+    }
   }
+
+  .urgent {
+    color: rgb(186, 0, 0);
+  }
+
 }

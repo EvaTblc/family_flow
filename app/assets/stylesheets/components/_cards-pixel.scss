@@ -5,6 +5,9 @@
                  15px 0 0 0 $violet,
                  0 -15px 0 0 $violet,
                  0 15px 0 0 $violet;
+  h2 {
+    color: $dark-violet;
+  }
 }
 
 .top_page-pixl {
@@ -119,4 +122,8 @@
   p {
     font-family: $pixlmain;
   }
+}
+
+.form-actions .btn-lets-go {
+  background-color: transparent;
 }

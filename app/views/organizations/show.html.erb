@@ -7,7 +7,7 @@
       <div data-toggle-target="name" class="title_orga">
         <h4><%= @organization.name %></h4>
         <button data-toggle-target="button" data-action="click->toggle#toggle">
-        <i class="fi fi-rr-edit" style="color: #9927f7; margin-top: 2%;"></i>
+        <i class="fa-regular fa-pen-to-square" style="color: #9927f7; margin-top: 2%;"></i>
         </button>
       </div>
       <div data-toggle-target="div" class="d-none">
@@ -37,39 +37,44 @@
         </div>
       </div>
     </div>
+  </div>
 
-  <div class="cards-orga-infos part_tasks" data-controller="toggle">
+  <div class="cards-orga-infos part_tasks">
     <div class="pixel-corners pixel-cards">
       <div data-toggle-target="name" class="title_orga">
         <h4>Tâches</h4>
-        <button data-toggle-target="button" data-action="click->toggle#toggle">
-        <i class="fi fi-rr-edit" style="color: #9927f7; margin-top: 2%;"></i>
-        </button>
-      </div>
-      <div data-toggle-target="div" class="d-none">
-        <%= render "shared/form", organization: @organization %>
+        <%= link_to tasks_path do %>
+          <button>
+            <i class="fa-solid fa-plus" style="color: #9927f7;"></i>
+          </button>
+        <% end %>
       </div>
     </div>
     <div class="infos-organization tasks">
       <div class="infos">
         <div class="task_organization">
           <div class="task_org">
-            <div class="user_info detail_task">
-              <% @organization.tasks.first(5).each do |task| %>
-              <div class="task">
-                <%= link_to task_path(task) do %>
-                  <%= task.title %>
-                <% end %>
+
+              <div class="detail_task">
+                <p class="number"><%= @organization.tasks.where(status: false).count %></p>
+                <p class="descr"><%= @organization.tasks.where(status: false).count > 1 ? 'tâche'.pluralize : 'tâche' %></p>
               </div>
-              <% end %>
-            </div>
+
+              <div class="detail_task">
+                <p class="number <%= @organization.tasks.where(end: Date.today).count >= 1 ? "urgent" : " " %>"><%= @organization.tasks.where(end: Date.today).count %></p>
+                <p class="descr">aujourd'hui</p>
+              </div>
+
+              <div class="detail_task">
+                <p class="number"><%= @organization.tasks.where(priority: true).count %>
+                <p class="descr"><%= @organization.tasks.where(priority: true).count > 1 ? 'prioritaire'.pluralize : 'prioritaire' %></p>
+              </div>
+
           </div>
         </div>
       </div>
     </div>
 
   </div>
-</div>
-
 
 </div>
