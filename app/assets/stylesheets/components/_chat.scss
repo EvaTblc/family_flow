@@ -24,7 +24,7 @@
 }
 
 .chat {
-  margin-top: 9px;
+  margin-top: 10vh;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -101,7 +101,7 @@
   }
 
   .form-control {
-    color: $lavander
+    color: $dark-violet
   }
 
   input::placeholder {

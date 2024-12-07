@@ -19,6 +19,7 @@
 .infos-organization {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4%;
   .infos {
     display: flex;
     flex-direction: column;
@@ -33,25 +34,32 @@
   justify-content: center;
   .user_org {
     width: 100%;
-    margin: 5px;
     margin-left: 10px;
     gap: 5px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .user_info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 5%;
+    margin-right: 5%;
   }
 
   p {
     height: 25px;
     margin-bottom: 0px;
   }
+
+  .user_card {
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+  }
+
 }
 
 .title_orga {

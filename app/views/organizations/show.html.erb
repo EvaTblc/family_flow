@@ -19,6 +19,7 @@
         <div class="member_organization">
           <div class="user_org">
             <% @other_users.each do |user| %>
+            <div class="user_card">
               <div class="user_info">
                 <% if user.avatar.attached? %>
                   <%= cl_image_tag user.avatar.key, class: "avatar-mini" %>
@@ -32,6 +33,8 @@
               <div class="contentmessage" id="organization_<%= @organization.id %>_latest_message">
                 <%= render "messages/latest_message", message: messages.last %>
               </div>
+
+            </div>
             <% end %>
           </div>
         </div>
