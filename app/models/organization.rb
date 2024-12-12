@@ -2,9 +2,12 @@ require 'json'
 require 'open-uri'
 
 class Organization < ApplicationRecord
-  has_many :users
+  belongs_to :creator, class_name: "User"
   has_many :messages
   has_many :tasks, through: :users
+  has_many :members
+  has_many :users, through: :members
+  
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
@@ -15,6 +18,6 @@ class Organization < ApplicationRecord
     icon = meteo['weather'].first['icon']
 
     {temp: meteo['main']['temp'], icon: "https://openweathermap.org/img/w/#{icon}.png"}
-    
+
   end
 end

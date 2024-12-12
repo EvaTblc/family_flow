@@ -1,0 +1,17 @@
+<div class="maincontainer">
+  <% if !@organizations.empty? %>
+    <% @organizations.each do |organization| %>
+      <%= organization.name %>
+    <% end %>
+  <% else %>
+    <p>Add Org</p>
+    <%= simple_form_for @organization do |f| %>
+      <%= f.input :name %>
+      <%= f.input :password %>
+      <%= f.input :address %>
+      <%= f.submit "Add" %>
+    <% end %>
+  <% end %>
+
+
+</div>

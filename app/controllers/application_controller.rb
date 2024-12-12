@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    stored_location_for(user) || organization_path(user.organization)
+    stored_location_for(user) || organizations_path
   end
 end

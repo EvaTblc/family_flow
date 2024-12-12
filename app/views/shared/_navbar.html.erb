@@ -12,12 +12,12 @@
         <% end %>
       </div>
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
-        <%= link_to organization_path(current_user.organization) do %>
+        <%= link_to "#" do %>
           <i class="fi fi-ss-family" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>
       <div class="nav-item icons <%= "active" if current_page?(organizations_path) %>">
-        <%= link_to new_organization_message_path(current_user.organization) do %>
+        <%= link_to "#" do %>
           <i class="fi fi-br-phone-heart-message" style="color: #B197FC; font-size: 32px;"></i>
         <% end %>
       </div>

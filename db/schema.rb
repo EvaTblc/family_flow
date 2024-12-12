@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_29_092154) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_10_105719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_092154) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_members_on_organization_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "organization_id", null: false
@@ -59,6 +68,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_092154) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.bigint "creator_id"
+    t.string "password"
+    t.index ["creator_id"], name: "index_organizations_on_creator_id"
   end
 
   create_table "solid_cable_messages", force: :cascade do |t|
@@ -98,16 +110,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_29_092154) do
     t.string "last_name"
     t.string "username"
     t.string "phone_number"
-    t.bigint "organization_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["organization_id"], name: "index_users_on_organization_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "members", "organizations"
+  add_foreign_key "members", "users"
   add_foreign_key "messages", "organizations"
   add_foreign_key "messages", "users"
+  add_foreign_key "organizations", "users", column: "creator_id"
   add_foreign_key "tasks", "users"
-  add_foreign_key "users", "organizations"
 end
