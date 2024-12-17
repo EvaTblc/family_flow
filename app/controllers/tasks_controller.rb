@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   # before_action :set_task, except: [:index]
   def index
-    @tasks = Task.where(user: current_user)
-    @organization = current_user.organization
-    @task = Task.new
+    # @tasks = Task.where(user: current_user)
+    # @organization = current_user.organization
+    # @task = Task.new
   end
 
   def show

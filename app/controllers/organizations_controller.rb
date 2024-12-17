@@ -16,6 +16,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @message = Message.new
+    @member = Member.new
     @other_users = @organization.users.where.not(username: current_user.username)
     @messages_users = @organization.messages.where.not(user: current_user)
   end

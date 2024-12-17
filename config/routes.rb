@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :tasks, only: [:index, :show, :create, :update]
   resources :organizations, only: [:index, :new, :create, :show, :destroy, :edit, :update] do
+    resources :members, only: [:create]
     resources :messages, only: [:create, :new]
   end
   resources :users, only: [:index] do

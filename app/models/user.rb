@@ -9,8 +9,12 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   has_many :messages, through: :organization
-  has_many :organizations, foreign_key: :owner_id
+  has_many :organizations, foreign_key: :creator_id
   has_many :members
+
+  def can_join_organization?
+    organizations.count < 3
+  end
 
   private
 
