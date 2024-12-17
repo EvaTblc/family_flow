@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :tasks
   has_many :messages, through: :organization
   has_many :organizations, foreign_key: :owner_id
   has_many :members

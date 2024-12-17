@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   before_save :format_date
-  belongs_to :user
+  belongs_to :organization
 
   CATEGORIES = ['Maison', 'Administratif', 'Santé', 'Famille', 'Loisirs', 'Quotidien', 'Autres']
   validates :category, inclusion: { in: CATEGORIES }

@@ -1,9 +1,9 @@
 <div class="top_page-pixl">
 
   <div class="welcome" data-controller="typed"
-    data-typed-address-value=<%= current_user.organization.address.split(",").last %>
-    data-typed-temp-value=<%= current_user.organization.meteo[:temp].round(0) %>
-    data-typed-icon-value=<%= current_user.organization.meteo[:icon] %>>
+    data-typed-address-value=<%= @organization.address.split(",").last %>
+    data-typed-temp-value=<%= @organization.meteo[:temp].round(0) %>
+    data-typed-icon-value=<%= @organization.meteo[:icon] %>>
 
     <div class="user-welcome">
 

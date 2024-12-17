@@ -4,10 +4,10 @@ require 'open-uri'
 class Organization < ApplicationRecord
   belongs_to :creator, class_name: "User"
   has_many :messages
-  has_many :tasks, through: :users
+  has_many :tasks
   has_many :members
   has_many :users, through: :members
-  
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 

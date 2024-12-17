@@ -1,7 +1,7 @@
 <div class="maincontainer">
   <% if !@organizations.empty? %>
     <% @organizations.each do |organization| %>
-      <%= organization.name %>
+      <%= link_to organization.name, organization_path(organization) %>
     <% end %>
   <% else %>
     <p>Add Org</p>
