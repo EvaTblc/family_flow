@@ -63,7 +63,7 @@
     <div class="pixel-corners pixel-cards">
       <div data-toggle-target="name" class="title_orga">
         <h4>Tâches</h4>
-        
+
       </div>
     </div>
     <div class="infos-organization tasks">
@@ -87,7 +87,7 @@
                 <p class="descr"><%= @organization.tasks.where(priority: true).count > 1 ? 'prioritaire'.pluralize : 'prioritaire' %></p>
               </div>
             <% else %>
-              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path(organization_id: @organization.id), class:"link_add" %></em>
+              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path, class:"link_add" %></em>
             <% end %>
           </div>
         </div>

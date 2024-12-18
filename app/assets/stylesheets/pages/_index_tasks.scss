@@ -46,3 +46,15 @@
     }
   }
 }
+
+  .urg_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .urg {
+      align-items: flex;
+    }
+  }
+

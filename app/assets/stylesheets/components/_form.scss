@@ -32,12 +32,20 @@
   }
 }
 
-.form_input_text {
-  display: flex;
-  flex-direction: column;
-}
+.taskform_container {
+  padding: 2vh;
+  background-color: antiquewhite;
+  border-radius: 5%;
+  line-height: 5vh;
+  .input_form {
+    height: 5vh;
+  }
+  .form_desc {
+    height: 10vh;
+  }
+  .form_input_text {
+    display: flex;
+    flex-direction: column;
+  }
 
-.form_input_date {
-  display: flex;
-  flex-direction: row;
 }
