@@ -1,21 +1,25 @@
-<div data-controller ="date-form", data-today = <%= Date.today %> >
-    <%= form_with model: task, method: :post, html: {class: "", data: {date_form_target: "form"}} do |f| %>
-      <%= f.text_field :title %>
-      <%= f.text_field :description %>
-      <%= f.select :category, Task::CATEGORIES %>
-      <%= f.date_field :start,
-                      html5: true,
-                      value: params[:query],
+<div>
+  <%= form_with(model: [organization, task], method: :post, html: { class: "form", data: { date_form_target: "form" } }) do |f| %>
+    <div class="form_input_text">
+      <%= f.text_field :title, placeholder: "Qu'avez-vous à faire ?", class: "input_form" %>
+      <%= f.text_field :description, placeholder: "Décrivez la tâche", class: "input_form" %>
+      <%= f.select :category, Task::CATEGORIES, { prompt: "Ajoutez une catégorie" }, { class: "input_form" } %>
+    </div>
+
+    <div class="form_input_date">
+      <%= f.label :start, "Début" %>
+      <%= f.text_field :start,
+                      placeholder: "Sélectionnez une date",
                       data: {
-                        date_form_target: "start",
-                      } %>
-      <%= f.date_field :end,
-                          html5: true,
-                          value: params[:query],
-                          data: {
-                            date_form_target: "end",
-                          } %>
-      <%= f.check_box :priority, label: "Urgent?" %>
-      <%# <%= f.????? :recurrence %>
-      <%= button_tag :submit %>
-    <% end %>
+                        controller: "flatpickr",
+                        flatpickr_target: "start"
+                      },
+                      class: "input_form" %>
+    </div>
+
+    <%= f.label :priority, "Urgent?" %>
+    <%= f.check_box :priority %>
+
+    <%= button_tag "Enregistrer", type: :submit, class: "button_submit" %>
+  <% end %>
+</div>

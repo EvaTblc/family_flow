@@ -8,3 +8,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap" # @5.3.3
 pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
 pin "typed.js" # @2.1.0
+pin "flatpickr" # @4.6.13
+pin "flatpickr-fr", to: "https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/fr.js"

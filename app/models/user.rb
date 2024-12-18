@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :organizations, foreign_key: :creator_id
   has_many :members
 
+  validates :email, uniqueness: true
+  validates :email, uniqueness: { scope: :username }
+
   def can_join_organization?
     organizations.count < 3
   end

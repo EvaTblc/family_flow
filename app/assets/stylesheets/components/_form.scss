@@ -1,11 +1,11 @@
 .form {
+  width: 100%;
   .input_form {
     border-radius: 25px;
     border: none;
     color: grey;
     margin: 3px;
     text-align: center;
-    width: 100%;
   }
 
   .btn-form {
@@ -17,4 +17,27 @@
     font-family: $pixlmain;
     width: 50%;
   }
+}
+
+.add_member {
+  text-align: center;
+  margin: 5%;
+  .btn-form {
+    height: 5vh;
+    width: 15%;
+    margin-left: 2vh;
+  }
+  .input_form {
+    height: 5vh;
+  }
+}
+
+.form_input_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input_date {
+  display: flex;
+  flex-direction: row;
 }

@@ -46,23 +46,24 @@
         </div>
       </div>
     <% else %>
-      <p>TODO: Form add member</p>
-      <%= simple_form_for @member, url: organization_members_path(@organization) do |f| %>
-        <%= f.input :user_id, collection: User.where.not(email: current_user.email).map { |u| [u.username, u.id] }, label: false, class: "input_form" %>
-        <%= f.submit "Ajouter", class: "btn_form" %>
-      <% end %>
+
+      <div class="add_member">
+        <%= form_with model: @member, url: organization_members_path(@organization), class: "form", local: true do |f| %>
+          <%= f.collection_select :user_id, User.where.not(email: current_user.email), :id, :username, { prompt: "Sélectionner un utilisateur" }, { class: "input_form" } %>
+          <button type="submit" class="btn-form">
+            <i class="fa-solid fa-plus" style="color: #ebd6e4;"></i>
+          </button>
+        <% end %>
+      </div>
     <% end %>
+
   </div>
 
   <div class="cards-orga-infos part_tasks">
     <div class="pixel-corners pixel-cards">
       <div data-toggle-target="name" class="title_orga">
         <h4>Tâches</h4>
-        <%= link_to tasks_path do %>
-          <button>
-            <i class="fa-solid fa-plus" style="color: #9927f7;"></i>
-          </button>
-        <% end %>
+        
       </div>
     </div>
     <div class="infos-organization tasks">
@@ -86,20 +87,7 @@
                 <p class="descr"><%= @organization.tasks.where(priority: true).count > 1 ? 'prioritaire'.pluralize : 'prioritaire' %></p>
               </div>
             <% else %>
-              <div class="detail_task">
-                <p class="number">TODO: Quid 0 task?</p>
-                <p class="descr">TODO: Quid 0 task?</p>
-              </div>
-
-              <div class="detail_task">
-                <p class="number <%= @organization.tasks.where(end: Date.today).count >= 1 ? "urgent" : " " %>">TODO: Quid 0 task?</p>
-                <p class="descr">TODO: Quid 0 task?</p>
-              </div>
-
-              <div class="detail_task">
-                <p class="number">TODO: Quid 0 task?</p>
-                <p class="descr">TODO: Quid 0 task?</p>
-              </div>
+              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path(organization_id: @organization.id), class:"link_add" %></em>
             <% end %>
           </div>
         </div>

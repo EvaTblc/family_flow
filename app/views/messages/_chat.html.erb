@@ -10,19 +10,20 @@
     <% end %>
   </div>
 
-<%= form_with model: [organization, @message],
-      html: { class: "form_chat",
-              data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset scroll#update" } },
-      local: true do |f| %>
-  <% other_user = User.where.not(username: current_user.username).first %>
-    <div class= "form-shadow">
-      <div class="flex-grow-1">
-        <%= f.text_area :content,
-              placeholder: "Envoyer un message",
-              class: "form-control" %>
+  <%= form_with model: [organization, @message],
+        html: { class: "form_chat",
+                data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset scroll#update" } },
+        local: true do |f| %>
+    <% other_user = User.where.not(username: current_user.username).first %>
+      <div class= "form-shadow">
+        <div class="flex-grow-1">
+          <%= f.text_area :content,
+                placeholder: "Envoyer un message",
+                class: "form-control" %>
+        </div>
+        <%= button_tag type: 'submit', class: "btn_chat" do %>
+          <i class="fa-solid fa-paper-plane fa-xl" style="color: #B197FC;"></i>
+        <% end %>
       </div>
-      <%= button_tag type: 'submit', class: "btn_chat" do %>
-        <i class="fa-solid fa-paper-plane fa-xl" style="color: #B197FC;"></i>
-      <% end %>
-    </div>
-<% end %>
+  <% end %>
+</div>

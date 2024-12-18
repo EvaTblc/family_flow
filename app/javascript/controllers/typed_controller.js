@@ -23,7 +23,7 @@ export default class extends Controller {
     }
     const dateNow = formatDate(new Date(Date.now()));
 
-    typed = new Typed('.element', {
+    const typed = new Typed('.element', {
       strings: [`Aujourd'hui nous sommes le ${dateNow}`,  `A ${this.addressValue} il fait ${this.tempValue}°C`],
       typeSpeed: 30,
       backSpeed: 20,
