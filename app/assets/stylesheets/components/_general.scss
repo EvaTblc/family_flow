@@ -2,10 +2,6 @@ body {
   background-color: $light-orange;
 }
 
-main {
-  min-height: 100vh;
-}
-
 a {
   text-decoration: none;
 }
@@ -43,9 +39,6 @@ p {
 }
 
 .maincontainer {
-  width: 100%;
-  min-height: 100vh;
-  margin-bottom: 120px;
   display: flex;
   flex-direction: column;
   padding-right: 25px;
