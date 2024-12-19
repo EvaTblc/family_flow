@@ -1,34 +1,10 @@
-// .header_tasks {
-//   background-color: #dbeffd;
-//   height: 10vh;
-//   display: flex;
-//   align-items: center;
-//   position: fixed;
-//   justify-content: center;
-//   top: 0;
-//   box-shadow: 0px 4px #F0C1E1;
-//   width: 100%;
-//   z-index: 99;
-//   min-height: 10vh;
+.index_tasks{
 
-//   h2 {
-//     font-family: $pixlmain;
-//     margin-left: 5%;
-//     color: $violet;
-//   }
+}
 
-//   i {
-//     font-size: 24px;
-//     font-family: $pixlmain;
-//     color: $violet;
-//   }
-// }
-
-.index_tasks {
-  margin-top: 30%;
+.tasks_list {
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
   line-height: 2;
   background-color: $light-lavander;
   padding: 10px;
@@ -47,14 +23,23 @@
   }
 }
 
-  .urg_btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.link_add_task {
+  position: fixed;
+  bottom: 8rem;
+  align-self: center;
 
-    .urg {
-      align-items: flex;
-    }
+  button {
+    width: 21rem;
   }
+}
 
+.urg_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  .urg {
+    align-items: flex;
+  }
+}

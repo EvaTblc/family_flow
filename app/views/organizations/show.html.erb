@@ -87,7 +87,7 @@
                 <p class="descr"><%= @organization.tasks.where(priority: true).count > 1 ? 'prioritaire'.pluralize : 'prioritaire' %></p>
               </div>
             <% else %>
-              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path, class:"link_add" %></em>
+              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path(@organization), class:"link_add" %></em>
             <% end %>
           </div>
         </div>

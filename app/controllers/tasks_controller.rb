@@ -13,7 +13,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params_tasks)
     @task.organization = @organization
-    @task.end = params_tasks[:start].split(' au ')[1]
+    
+    if params_tasks[:end].nil? && params_tasks[:start].present?
+      @task.end = params_tasks[:start]
+    else
+      @task.end = params_tasks[:start].split('au')[1]
+    end
+
     if @task.save!
       redirect_to organization_tasks_path(organization: @organization)
     end
