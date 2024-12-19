@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # BASE GEMS
-ruby "3.1.2"
+ruby "3.3.5"
 gem "rails", "~> 7.2.0"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
