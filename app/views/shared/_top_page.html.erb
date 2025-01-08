@@ -1,9 +1,9 @@
 <div class="top_page-pixl">
-
+<% organization = Organization.find(params[:organization_id] || params[:id]) || current_user.organizations.first %>
   <div class="welcome" data-controller="typed"
-    data-typed-address-value=<%= @organization.address.split(",").last %>
-    data-typed-temp-value=<%= @organization.meteo[:temp].round(0) %>
-    data-typed-icon-value=<%= @organization.meteo[:icon] %>>
+    data-typed-address-value=<%= organization.address.split(",").last %>
+    data-typed-temp-value=<%= organization.meteo[:temp].round(0) %>
+    data-typed-icon-value=<%= organization.meteo[:icon] %>>
 
     <div class="user-welcome">
 
@@ -11,8 +11,8 @@
           <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
 
 
-      <h2 >Bonjour <br> <%= current_user.username %></h2>
-      <%= link_to edit_user_registration_path, class: "link_edit" do %>
+      <h2>Bonjour <br> <%= current_user.username %></h2>
+      <%= link_to edit_user_registration_path(organization_id: organization.id), class: "link_edit" do %>
         <i class="fa-regular fa-pen-to-square"></i>
       <% end %>
     </div>

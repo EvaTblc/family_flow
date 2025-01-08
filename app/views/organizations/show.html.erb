@@ -70,6 +70,7 @@
       <div class="infos">
         <div class="task_organization">
           <div class="task_org">
+              <em><%= link_to "Ajouter votre 1ere tâche !", organization_tasks_path(@organization), class:"link_add" %></em>
 
             <% if @organization.tasks.any? %>
              <div class="detail_task">
