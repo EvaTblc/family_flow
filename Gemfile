@@ -48,3 +48,5 @@ gem 'validates_timeliness', '~> 7.0.0.beta1'
 gem 'bcrypt'
 gem "geocoder"
 gem "solid_cable", "~> 3.0.2"
+
+gem "noticed", "~> 2.5"
